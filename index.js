@@ -42,12 +42,12 @@ const filter3 = {
 const filter4 = {
     '$and': [
       {
-        'ipo': {
-          '$gt': 100000
-        }
-      }, {
         'founded_year': {
           '$lt': 2010
+        }
+      }, {
+        'ipo.valuation_amount': {
+          '$gt': 100000000
         }
       }
     ]
@@ -76,15 +76,24 @@ const filter5 = {
 
 
 // 6. All the companies that don't include the `partners` field.
-
+const filter6 = {
+    'partners': {
+      '$exists': false
+    }
+  };
 
 // 7. All the companies that have a null type of value on the `category_code` field.
-
+const filter7 = {
+    'category_code': {
+      '$type': 'null'
+    }
+  };
 
 // 8. All the companies that have at least 100 employees but less than 1000. Retrieve only the `name` and `number of employees` fields.
 const filter8 = {
     'number_of_employees': {
-      '$gte': 100
+      '$gt': 100, 
+      '$lt': 1000
     }
   };
   const projection8 = {
@@ -115,11 +124,24 @@ const filter11 = {
   const limit11 = 1000;
 
 // 12. All the companies founded before 2000 that have an acquisition amount of more than 10.000.000
-
-
+const filter12 = {
+    '$and': [
+      {
+        'founded_year': {
+          '$lt': 2000
+        }
+      }, {
+        'acquisition.price_amount': {
+          '$gt': 10000000
+        }
+      }
+    ]
+  };
+  const projection12 = {
+    'acquisition': 1
+  };
 
 // 13. All the companies that have been acquired after 2010, order by the acquisition amount, and retrieve only their `name` and `acquisition` field.
-
 
 
 // 14. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.
