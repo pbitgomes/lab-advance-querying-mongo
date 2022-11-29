@@ -124,7 +124,7 @@ const filter11 = {
 
 // 14. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.
 const filter14 = {};
-const projection = {
+const projection14 = {
   'name': 1, 
   'founded_year': 1, 
   '_id': 0
@@ -138,15 +138,29 @@ const sort14 = {
 
 
 // 16. All the companies on the 'web' `category` that have more than 4000 employees. Sort them by the amount of employees in ascending order.
-
-
+const filter16 = {
+    '$and': [
+      {
+        'category_code': 'web'
+      }, {
+        'number_of_employees': {
+          '$gt': 4000
+        }
+      }
+    ]
+  };
+  const projection16 = {
+    'category_code': 1, 
+    '_id': 0
+  };
+  const sort16 = {
+    'number_of_employees': 1
+  };
 
 // 17. All the companies whose acquisition amount is more than 10.000.000, and currency is 'EUR'.
 
 
-
 // 18. All the companies that have been acquired on the first trimester of the year. Limit the search to 10 companies, and retrieve only their `name` and `acquisition` fields.
-
 
 
 // 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.

@@ -4,45 +4,15 @@
 
 ### 1. All the companies whose name match 'Babelgum'. Retrieve only their `name` field.
 
-const filter = {
-name: "Babelgum",
-};
-const projection = {
-   name: 1,
-};
+<!-- Your Code Goes Here -->
 
 ### 2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by **number of employees**.
 
-const filter = {
-  'number_of_employees': {
-    '$gt': 5000
-  }
-};
-const sort = {
-  'number_of_employees': 1
-};
-const limit = 20;
-
+<!-- Your Code Goes Here -->
 
 ### 3. All the companies founded between 2000 and 2005, both years included. Retrieve only the `name` and `founded_year` fields.
-const filter = {
-  '$and': [
-    {
-      'founded_year': {
-        '$gte': 2000
-      }
-    }, {
-      'founded_year': {
-        '$lte': 2005
-      }
-    }
-  ]
-};
-const projection = {
-  'name': 1, 
-  'founded_year': 1, 
-  '_id': 0
-};
+
+<!-- Your Code Goes Here -->
 
 ### 4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.
 
@@ -66,10 +36,7 @@ const projection = {
 
 ### 9. Order all the companies by their IPO price in a descending order.
 
-const filter = {};
-const sort = {
-  'ipo': -1
-};
+<!-- Your Code Goes Here -->
 
 ### 10. Retrieve the 10 companies with most employees, order by the `number of employees`
 
